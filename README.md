@@ -17,6 +17,19 @@ RUNNING
 
 /opt/bin/python will works well. :)
 
+if you want to run python in anywhere, just make ~/.bashrc file which contains this.
+```
+export PATH=$PATH:/opt/bin
+```
+
+or just run this command
+```
+cat > ~/.bashrc << EOF
+export PATH=\$PATH:/opt/bin
+EOF
+```
+
+
 WITH ANSIBLE
 ============
 check sample-ansible-hosts file. there would be all you need to.
