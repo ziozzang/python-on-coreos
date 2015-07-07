@@ -1,0 +1,11 @@
+core-01 ansible_ssh_host=10.11.22.33 ansible_ssh_user=core
+
+[coreos]
+core-01
+
+[coreos:vars]
+ansible_ssh_user=core
+ansible_python_interpreter="PATH=/opt/bin:$PATH python"
+
+# you can run command just like this..
+# ansible -m setup -i hosts core-01
