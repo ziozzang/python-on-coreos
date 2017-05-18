@@ -1,16 +1,16 @@
 #!/bin/bash
-VERSIONS=${VERSIONS:-"2.7.8.10"}
+VERSION=${VERSION:-"2.7.13.2715-linux-x86_64-glibc-2.12-402695"}
 
 # make directory
 mkdir -p /opt/bin
 cd /opt
 
-wget http://downloads.activestate.com/ActivePython/releases/${VERSIONS}/ActivePython-${VERSIONS}-linux-x86_64.tar.gz
-tar -xzvf ActivePython-${VERSIONS}-linux-x86_64.tar.gz
+wget -qO - http://downloads.activestate.com/ActivePython/releases/${VERSION%%-*}/ActivePython-${VERSION}.tar.gz | tar -xzvf -
 
-mv ActivePython-${VERSIONS}-linux-x86_64 apy && cd apy && ./install.sh -I /opt/python/
+(cd ActivePython-${VERSION} && ./install.sh -I /opt/python/)
+rm -rf ActivePython-${VERSION}
 
-ln -s /opt/python/bin/easy_install /opt/bin/easy_install
-ln -s /opt/python/bin/pip /opt/bin/pip
-ln -s /opt/python/bin/python /opt/bin/python
-ln -s /opt/python/bin/virtualenv /opt/bin/virtualenv
+ln -sf /opt/python/bin/easy_install /opt/bin/easy_install
+ln -sf /opt/python/bin/pip /opt/bin/pip
+ln -sf /opt/python/bin/python /opt/bin/python
+ln -sf /opt/python/bin/virtualenv /opt/bin/virtualenv

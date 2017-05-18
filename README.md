@@ -1,8 +1,8 @@
 # python-on-coreos
-Python on CoreOS. works well with ansible.
+Python on CoreOS.
 
-this script install Active Python x86_64 binary to CoreOS.
-this will works well with ansible, also any 3rd party software. because it hsa pip also. :)
+this script installs Active Python x86_64 binary to CoreOS.
+this works well with ansible and any 3rd party software because it also has pip. :)
 
 INSTALL
 =======
@@ -15,19 +15,9 @@ wget -qO- https://raw.githubusercontent.com/ziozzang/python-on-coreos/master/ins
 RUNNING
 =======
 
-/opt/bin/python will works well. :)
+/opt/bin/python works well. :)
 
-if you want to run python in anywhere, just make ~/.bashrc file which contains this.
-```
-export PATH=$PATH:/opt/bin
-```
-
-or just run this command
-```
-cat > ~/.bashrc << EOF
-export PATH=\$PATH:/opt/bin
-EOF
-```
+recent CoreOS already puts /opt/bin in $PATH.
 
 
 WITH ANSIBLE
