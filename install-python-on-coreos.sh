@@ -10,7 +10,7 @@ mkdir -p /opt/bin
 cd /opt
 
 # Get File Name from sites
-FNAME=`wget http://downloads.activestate.com/ActivePython/releases/2.7.13.2714/ -q -O - | grep "linux" | grep "tar.gz"  | head -n 1  | sed -n 's/.*href="\([^"]*\).*$/\1/p'`
+FNAME=`wget http://downloads.activestate.com/ActivePython/releases/${VERSIONS}/ -q -O - | grep "linux" | grep "tar.gz"  | head -n 1  | sed -n 's/.*href="\([^"]*\).*$/\1/p'`
 
 # Get Download.
 wget http://downloads.activestate.com/ActivePython/releases/${VERSIONS}/${FNAME}
