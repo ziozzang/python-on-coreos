@@ -1,14 +1,23 @@
 #!/bin/bash
-VERSIONS=${VERSIONS:-"2.7.8.10"}
+
+# Get Version
+VERSION_STR=`wget http://downloads.activestate.com/ActivePython/releases/ -q -O - | grep "folder.gif" | head -n 1  | sed -n 's/.*href="\([^"]*\).*$/\1/p'`
+
+VERSIONS=${VERSIONS:-"${VERSION_STR}"}
 
 # make directory
 mkdir -p /opt/bin
 cd /opt
 
-wget http://downloads.activestate.com/ActivePython/releases/${VERSIONS}/ActivePython-${VERSIONS}-linux-x86_64.tar.gz
-tar -xzvf ActivePython-${VERSIONS}-linux-x86_64.tar.gz
+# Get File Name from sites
+FNAME=`wget http://downloads.activestate.com/ActivePython/releases/2.7.13.2714/ -q -O - | grep "linux" | grep "tar.gz"  | head -n 1  | sed -n 's/.*href="\([^"]*\).*$/\1/p'`
 
-mv ActivePython-${VERSIONS}-linux-x86_64 apy && cd apy && ./install.sh -I /opt/python/
+# Get Download.
+wget http://downloads.activestate.com/ActivePython/releases/${VERSIONS}/${FNAME}
+tar -xzvf ${FNAME}
+
+# Rename
+mv `find ./ActivePython-* -type d | head -n 1` apy && cd apy && ./install.sh -I /opt/python/
 
 ln -s /opt/python/bin/easy_install /opt/bin/easy_install
 ln -s /opt/python/bin/pip /opt/bin/pip
