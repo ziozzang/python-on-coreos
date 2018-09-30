@@ -19,13 +19,13 @@ RUNNING
 
 if you want to run python in anywhere, just make ~/.bashrc file which contains this.
 ```
-export PATH=$PATH:/opt/bin
+export PATH=$PATH:/opt/bin:/opt/python/bin
 ```
 
 or just run this command
 ```
 cat > ~/.bashrc << EOF
-export PATH=\$PATH:/opt/bin
+export PATH=\$PATH:/opt/bin:/opt/python/bin
 EOF
 ```
 
